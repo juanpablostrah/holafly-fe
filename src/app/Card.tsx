@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "./types/CardType";
+import type { Card } from "./types/CardType";
 import "tailwindcss/tailwind.css";
 import { Button } from "@material-tailwind/react";
 import { CARD_STATUS } from "./const";
