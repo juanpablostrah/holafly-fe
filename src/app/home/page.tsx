@@ -11,6 +11,7 @@ import React, { useEffect } from "react";
 import Card from "../components/card/Card";
 import { CARD_STATUS, HOST } from "../utils/const";
 import useCardStore from "../store/cardStore";
+import { CardType } from "../components/card/CardType";
 
 const HomePage = () => {
 	const { cards, setCards } = useCardStore((state) => ({

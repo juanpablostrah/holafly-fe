@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { CardType } from "../components/card/CardType";
 
 type CardStore = {
-	cards: CardType[] | [];
+	cards: CardType[];
 	setCards: (cards: CardType[]) => void;
 };
 
