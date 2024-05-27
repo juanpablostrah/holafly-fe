@@ -8,7 +8,7 @@ import {
 	ThemeProvider,
 } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
-import Card from "../Card";
+import Card from "../components/card/Card";
 import { CARD_STATUS, HOST } from "../const";
 import useCardStore from "../store/cardStore";
 
@@ -59,7 +59,7 @@ const HomePage = () => {
 
 	return (
 		<ThemeProvider>
-			<div className="container mx-auto mt-8">
+			<div className="container mx-auto mt-8 w-1/2">
 				<Tabs>
 					<TabsHeader>
 						<Tab key="activePending" value="activePending">
@@ -73,11 +73,11 @@ const HomePage = () => {
 						<TabPanel key="activePending" value="activePending">
 							<div
 								style={{ width: "50%" }}
-								className="flex flex-col items-center"
+								className="flex flex-col items-center w-1/2"
 							>
 								{activeAndPendingCards.length > 0 ? (
 									activeAndPendingCards.map((card, index) => (
-										<Card key={index} card={card}></Card>
+										<Card key={index} card={card} />
 									))
 								) : (
 									<p>No active or pending cards found.</p>
@@ -85,13 +85,18 @@ const HomePage = () => {
 							</div>
 						</TabPanel>
 						<TabPanel key="expired" value="expired">
-							{expiredCards.length > 0 ? (
-								expiredCards.map((card, index) => (
-									<Card key={index} card={card}></Card>
-								))
-							) : (
-								<p>No expired cards found.</p>
-							)}
+							<div
+								style={{ width: "50%" }}
+								className="flex flex-col items-center"
+							>
+								{expiredCards.length > 0 ? (
+									expiredCards.map((card, index) => (
+										<Card key={index} card={card}></Card>
+									))
+								) : (
+									<p>No active or pending cards found.</p>
+								)}
+							</div>
 						</TabPanel>
 					</TabsBody>
 				</Tabs>

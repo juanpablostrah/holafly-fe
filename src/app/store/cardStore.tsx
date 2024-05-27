@@ -1,9 +1,9 @@
 import { create } from "zustand";
-import { Card } from "../types/CardType";
+import { CardType } from "../components/card/CardType";
 
 type CardStore = {
-	cards: Card[] | [];
-	setCards: (cards: Card[]) => void;
+	cards: CardType[] | [];
+	setCards: (cards: CardType[]) => void;
 };
 
 const useCardStore = create<CardStore>((set) => ({

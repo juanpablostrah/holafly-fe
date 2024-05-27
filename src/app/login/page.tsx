@@ -1,10 +1,12 @@
 "use client";
 
 import { Button, Input, ThemeProvider } from "@material-tailwind/react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useState, Suspense } from "react";
 import { HOST } from "../const";
 import useUserStore from "../store/userStore";
+import dynamic from "next/dynamic";
+const Loader = dynamic(() => import("../components/Loader"), { ssr: false });
 
 const LoginPage: React.FC = () => {
 	const [email, setEmail] = useState("");
@@ -51,53 +53,55 @@ const LoginPage: React.FC = () => {
 
 	return (
 		<ThemeProvider>
-			<div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-				<div className="max-w-md w-full space-y-8">
-					<div>
-						<h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-							Login
-						</h2>
-					</div>
-					<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-						<div className="rounded-md shadow-sm -space-y-px">
-							<div className="mb-4">
-								<Input
-									id="email-address"
-									name="email"
-									type="email"
-									autoComplete="email"
-									required
-									value={email}
-									onChange={handleEmailChange}
-									variant="outlined"
-									size="lg"
-									label="Correo electrónico"
-								/>
-							</div>
-							<div>
-								<Input
-									id="password"
-									name="password"
-									type="password"
-									autoComplete="current-password"
-									required
-									value={password}
-									onChange={handlePasswordChange}
-									variant="outlined"
-									size="lg"
-									label="Contraseña"
-								/>
-							</div>
-						</div>
-
+			<Suspense fallback={<Loader />}>
+				<div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+					<div className="max-w-md w-full space-y-8">
 						<div>
-							<Button type="submit" color="blue" fullWidth>
-								Iniciar sesión
-							</Button>
+							<h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+								Login
+							</h2>
 						</div>
-					</form>
+						<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+							<div className="rounded-md shadow-sm -space-y-px">
+								<div className="mb-4">
+									<Input
+										id="email-address"
+										name="email"
+										type="email"
+										autoComplete="email"
+										required
+										value={email}
+										onChange={handleEmailChange}
+										variant="outlined"
+										size="lg"
+										label="Correo electrónico"
+									/>
+								</div>
+								<div>
+									<Input
+										id="password"
+										name="password"
+										type="password"
+										autoComplete="current-password"
+										required
+										value={password}
+										onChange={handlePasswordChange}
+										variant="outlined"
+										size="lg"
+										label="Contraseña"
+									/>
+								</div>
+							</div>
+
+							<div>
+								<Button type="submit" color="blue" fullWidth>
+									Iniciar sesión
+								</Button>
+							</div>
+						</form>
+					</div>
 				</div>
-			</div>
+			</Suspense>
 		</ThemeProvider>
 	);
 };

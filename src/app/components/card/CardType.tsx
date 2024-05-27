@@ -2,7 +2,7 @@ export type Consumption = {
 	totalConsumption: number;
 };
 
-export type Card = {
+export type CardType = {
 	userId: number;
 	status: string;
 	dateStart: string;
