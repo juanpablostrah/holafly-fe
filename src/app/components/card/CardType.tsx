@@ -1,10 +1,12 @@
+import { CARD_STATUS } from "@/app/const";
+
 export type Consumption = {
 	totalConsumption: number;
 };
 
 export type CardType = {
 	userId: number;
-	status: string;
+	status: CARD_STATUS;
 	dateStart: string;
 	dateEnd: string;
 	consumption: Consumption;

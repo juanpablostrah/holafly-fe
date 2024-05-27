@@ -7,13 +7,12 @@ import {
 	TabsHeader,
 	ThemeProvider,
 } from "@material-tailwind/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Card from "../components/card/Card";
 import { CARD_STATUS, HOST } from "../const";
 import useCardStore from "../store/cardStore";
 
 const HomePage = () => {
-	const [tabStatus, setTabStatus] = useState("activePending");
 	const { cards, setCards } = useCardStore((state) => ({
 		cards: state.cards,
 		setCards: state.setCards,
