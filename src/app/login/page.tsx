@@ -3,7 +3,7 @@
 import { Button, Input, ThemeProvider } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
 import React, { useState, Suspense } from "react";
-import { HOST } from "../const";
+import { HOST } from "../utils/const";
 import useUserStore from "../store/userStore";
 import dynamic from "next/dynamic";
 const Loader = dynamic(() => import("../components/Loader"), { ssr: false });
@@ -75,6 +75,7 @@ const LoginPage: React.FC = () => {
 										variant="outlined"
 										size="lg"
 										label="Correo electrónico"
+										crossOrigin
 									/>
 								</div>
 								<div>
@@ -89,6 +90,7 @@ const LoginPage: React.FC = () => {
 										variant="outlined"
 										size="lg"
 										label="Contraseña"
+										crossOrigin
 									/>
 								</div>
 							</div>

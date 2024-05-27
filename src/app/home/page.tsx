@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import React, { useEffect } from "react";
 import Card from "../components/card/Card";
-import { CARD_STATUS, HOST } from "../const";
+import { CARD_STATUS, HOST } from "../utils/const";
 import useCardStore from "../store/cardStore";
 
 const HomePage = () => {
@@ -17,6 +17,8 @@ const HomePage = () => {
 		cards: state.cards,
 		setCards: state.setCards,
 	}));
+
+	console.log("cardsRedux: ", cards);
 
 	useEffect(() => {
 		getCards();
@@ -57,50 +59,42 @@ const HomePage = () => {
 	);
 
 	return (
-		<ThemeProvider>
-			<div className="container mx-auto mt-8 w-1/2">
-				<Tabs>
-					<TabsHeader>
-						<Tab key="activePending" value="activePending">
-							Active/Pending
-						</Tab>
-						<Tab key="expired" value="expired">
-							Expired
-						</Tab>
-					</TabsHeader>
-					<TabsBody>
-						<TabPanel key="activePending" value="activePending">
-							<div
-								style={{ width: "50%" }}
-								className="flex flex-col items-center w-1/2"
-							>
-								{activeAndPendingCards.length > 0 ? (
-									activeAndPendingCards.map((card, index) => (
-										<Card key={index} card={card} />
-									))
-								) : (
-									<p>No active or pending cards found.</p>
-								)}
-							</div>
-						</TabPanel>
-						<TabPanel key="expired" value="expired">
-							<div
-								style={{ width: "50%" }}
-								className="flex flex-col items-center"
-							>
-								{expiredCards.length > 0 ? (
-									expiredCards.map((card, index) => (
-										<Card key={index} card={card}></Card>
-									))
-								) : (
-									<p>No active or pending cards found.</p>
-								)}
-							</div>
-						</TabPanel>
-					</TabsBody>
-				</Tabs>
-			</div>
-		</ThemeProvider>
+		<div className="container mx-auto mt-8 w-2/5">
+			<Tabs>
+				<TabsHeader>
+					<Tab key="activePending" value="activePending">
+						Active/Pending
+					</Tab>
+					<Tab key="expired" value="expired">
+						Expired
+					</Tab>
+				</TabsHeader>
+				<TabsBody>
+					<TabPanel key="activePending" value="activePending">
+						<div className="flex flex-col items-center w-1/2">
+							{activeAndPendingCards.length > 0 ? (
+								activeAndPendingCards.map((card, index) => (
+									<Card key={index} card={card} />
+								))
+							) : (
+								<p>No active or pending cards found.</p>
+							)}
+						</div>
+					</TabPanel>
+					<TabPanel key="expired" value="expired">
+						<div className="flex flex-col items-center w-1/2">
+							{expiredCards.length > 0 ? (
+								expiredCards.map((card, index) => (
+									<Card key={index} card={card}></Card>
+								))
+							) : (
+								<p>No active or pending cards found.</p>
+							)}
+						</div>
+					</TabPanel>
+				</TabsBody>
+			</Tabs>
+		</div>
 	);
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import type { CardType } from "./CardType";
 import "tailwindcss/tailwind.css";
 import { Button } from "@material-tailwind/react";
-import { CARD_STATUS } from "../../const";
+import { CARD_STATUS } from "../../utils/const";
 import Calendar from "../Calendar";
 import Circle from "../Circle";
 import "./styles.css";
@@ -77,8 +77,8 @@ const Card = ({ card }: CardProps) => {
 	return (
 		<>
 			<div
-				style={{ width: "70%", height: "280px", marginBottom: 40 }}
-				className="flex p-4 border-2 rounded w-1/2 mb-8 flex-col min-w-80"
+				// style={{ width: "70%", height: "280px", marginBottom: 40 }}
+				className="flex p-4 border-2 rounded w-1/2 mb-8 flex-col min-w-80 h-72"
 			>
 				<div
 					className={`flex ${

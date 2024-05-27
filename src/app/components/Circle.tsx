@@ -5,8 +5,9 @@ type CircleProps = {
 };
 
 const Circle = (circleProps: CircleProps) => {
-	const convertKBToGB = (totalconsumptionInKB: number): number => {
-		return totalconsumptionInKB / 1048576;
+	const convertKBToGB = (totalconsumptionInKB: number): string => {
+		const consumptionInKb = totalconsumptionInKB / 1048576;
+		return consumptionInKb.toFixed(2);
 	};
 	return (
 		<div
