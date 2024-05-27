@@ -1,12 +1,12 @@
 "use client";
 
 import { Button, Input, ThemeProvider } from "@material-tailwind/react";
-import { useRouter } from "next/navigation";
-import React, { useState, Suspense } from "react";
-import { HOST } from "../utils/const";
-import useUserStore from "../store/userStore";
 import dynamic from "next/dynamic";
-const Loader = dynamic(() => import("../components/Loader"), { ssr: false });
+import { useRouter } from "next/navigation";
+import React, { Suspense, useState } from "react";
+import useUserStore from "../../store/userStore";
+import { HOST } from "../../utils/const";
+const Loader = dynamic(() => import("../../components/Loader"), { ssr: false });
 
 const LoginPage: React.FC = () => {
 	const [email, setEmail] = useState("");

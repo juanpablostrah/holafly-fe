@@ -5,21 +5,17 @@ import {
 	Tabs,
 	TabsBody,
 	TabsHeader,
-	ThemeProvider,
 } from "@material-tailwind/react";
 import React, { useEffect } from "react";
-import Card from "../components/card/Card";
-import { CARD_STATUS, HOST } from "../utils/const";
-import useCardStore from "../store/cardStore";
-import { CardType } from "../components/card/CardType";
+import Card from "../../components/card/Card";
+import useCardStore from "../../store/cardStore";
+import { CARD_STATUS, HOST } from "../../utils/const";
 
 const HomePage = () => {
 	const { cards, setCards } = useCardStore((state) => ({
 		cards: state.cards,
 		setCards: state.setCards,
 	}));
-
-	console.log("cardsRedux: ", cards);
 
 	useEffect(() => {
 		getCards();

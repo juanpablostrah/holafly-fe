@@ -1,4 +1,4 @@
-import { CARD_STATUS } from "../../utils/const";
+import { CARD_STATUS } from "../../app/utils/const";
 
 export type Consumption = {
 	totalConsumption: number;

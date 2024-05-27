@@ -10,14 +10,7 @@ const Circle = (circleProps: CircleProps) => {
 		return consumptionInKb.toFixed(2);
 	};
 	return (
-		<div
-			className="flex flex-col justify-center items-center rounded-full"
-			style={{
-				border: "1.5px solid black",
-				width: "94px",
-				height: "94px",
-			}}
-		>
+		<div className="flex flex-col justify-center items-center rounded-full w-24 h-24 border-2 border-black">
 			<span className="text-center text-xl font-bold">
 				{convertKBToGB(circleProps.totalConsumption)}
 			</span>
