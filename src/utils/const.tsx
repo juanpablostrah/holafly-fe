@@ -1,4 +1,4 @@
-export const HOST: string = "http://localhost:3002";
+export const HOST: string = "https://be-holafly.onrender.com";
 
 export enum CARD_STATUS {
 	ACTIVE = "Active",
