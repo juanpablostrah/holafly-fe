@@ -1,6 +1,5 @@
 import { Button } from "@material-tailwind/react";
 import React from "react";
-import "tailwindcss/tailwind.css";
 import { CARD_STATUS } from "../../utils/const";
 import Calendar from "../Calendar";
 import Circle from "../Circle";
@@ -105,7 +104,10 @@ const Card = ({ card }: CardProps) => {
 					</div>
 
 					{isActive ? (
-						<Circle totalConsumption={card.consumption?.totalConsumption} />
+						<Circle
+							totalConsumption={card.consumption?.totalConsumption}
+							plan={card.plan}
+						/>
 					) : !isExpired ? (
 						<Calendar />
 					) : null}
